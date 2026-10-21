@@ -1,5 +1,6 @@
 name: Publish PHP 8.2 image to Docker Hub
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
