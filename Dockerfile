@@ -1,6 +1,8 @@
 FROM debian:trixie-slim
 
-LABEL maintainer="sean@malmoset.com"
+LABEL maintainer="sean@malmoset.com" \
+      org.opencontainers.image.source="https://github.com/SeanMollet/nginx-php-fpm" \
+      org.opencontainers.image.description="Unofficial successor to wyveo/nginx-php-fpm, patched for php2shell (CVE-2026-109618, CVE-2026-109619). nginx + PHP-FPM 8.2.35."
 
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
