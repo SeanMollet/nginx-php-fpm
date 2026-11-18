@@ -2,7 +2,7 @@ FROM debian:trixie-slim
 
 LABEL maintainer="sean@malmoset.com" \
       org.opencontainers.image.source="https://github.com/SeanMollet/nginx-php-fpm" \
-      org.opencontainers.image.description="Unofficial successor to wyveo/nginx-php-fpm, patched for php2shell (CVE-2026-109618, CVE-2026-109619). nginx + PHP-FPM 8.2.35."
+      org.opencontainers.image.description="Unofficial successor to wyveo/nginx-php-fpm, patched for php2shell (CVE-2026-109618, CVE-2026-109619) and the Nov 2026 nginx CVEs. nginx 1.31.9 + PHP-FPM 8.2.35."
 
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
@@ -49,6 +49,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             php8.2-memcached \
             php-pear \
     && dpkg --compare-versions "$(dpkg-query -W -f='${Version}' php8.2-fpm)" ge 8.2.35 \
+    && dpkg --compare-versions "$(dpkg-query -W -f='${Version}' nginx)" ge 1.31.9 \
     && mkdir -p /run/php \
     && pip install --no-cache-dir --break-system-packages --root-user-action=ignore supervisor git+https://github.com/coderanger/supervisor-stdout \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \

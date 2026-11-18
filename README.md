@@ -5,6 +5,8 @@
 >
 > `wyveo/nginx-php-fpm` has not been updated since September 2023 and still ships PHP 8.2.9 on Debian bullseye (now end of life). On 21 October 2026 PHP fixed two critical unauthenticated remote code execution flaws, "php2shell" ([CVE-2026-109618 and CVE-2026-109619](https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching), CVSS 9.2), that affect every PHP install serving web requests. This image ships the patched **PHP 8.2.35**.
 >
+> On 18 November 2026 nginx fixed 10 more CVEs, including HTTP/2 memory corruption ([CVE-2026-123007](https://nginx.org/en/security_advisories.html)) and an endless loop reading request bodies over TLS 1.3 (CVE-2026-118899). This image ships the patched **nginx 1.31.9**; see the [CHANGELOG](CHANGELOG.md) for the full list.
+>
 > It is a drop-in replacement: same PHP 8.2, same extensions, same config, paths and web root. Swap the image name and redeploy:
 >
 > ```

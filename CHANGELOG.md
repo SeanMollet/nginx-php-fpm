@@ -1,3 +1,8 @@
+## [0.7.6] - 18-11-2026
+### Security
+- nginx version 1.31.9 - fixes CVE-2026-125283, CVE-2026-123007, CVE-2026-123633, CVE-2026-121810, CVE-2026-123634, CVE-2026-113425, CVE-2026-120967, CVE-2026-120993, CVE-2026-123640, CVE-2026-118899 - [http://nginx.org/en/CHANGES](http://nginx.org/en/CHANGES)
+- build fails if nginx < 1.31.9 is installed
+
 ## [0.7.5] - 21-10-2026
 ### Security
 - php version 8.2.35 - fixes php2shell (CVE-2026-109618, CVE-2026-109619)
